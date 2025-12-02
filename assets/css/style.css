@@ -42,6 +42,11 @@ body {
     -webkit-backdrop-filter: blur(7.1px);
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
+/* Title on each page */
+.title  {
+    text-align:center;
+    font-size:40px;
+}
 
 /* Header + footer should not shrink */
 .hero-header,
