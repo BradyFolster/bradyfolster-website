@@ -1,3 +1,19 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Whatever wraps your main content between header and footer */
+main {
+    flex: 1;  /* pushes footer to the bottom when content is short */
+}
+
 /* Styling for the top menu bar */
 .site_header    {
     position:relative;
@@ -81,22 +97,22 @@
     -webkit-backdrop-filter: blur(7.1px);
     border: 1px solid rgba(255, 255, 255, 0.4);
 
-    padding: 8px 16px;   /* ⬅ smaller padding = shorter footer */
+    padding: 8px 16px;  /* compact height */
+    margin-top: 24px;   /* small gap above footer */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9rem;
 
     position: relative;
     z-index: 1;
-    /* we'll handle vertical position with flex instead of margin-top */
 }
+
 .footer_content {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
     flex-wrap: wrap;
-    font-size: 0.9rem; /* a bit smaller looks nice in a footer */
 }
-
 
 /* Links in the footer */
 .footer_links {
