@@ -27,7 +27,7 @@ body {
 
 /* Main content area between header and footer */
 .page_content {
-    flex: 1 0 auto;
+    flex: 1 0 1;
     margin-left:auto;
     margin-right:auto;
     margin-top: 80px;
@@ -46,6 +46,10 @@ body {
 .title  {
     text-align:center;
     font-size:40px;
+}
+/* Body text (like on the main page) (paragraph elements) */
+.body_text  {
+    text-align:center;
 }
 
 /* Header + footer should not shrink */
