@@ -56,22 +56,18 @@
 .hero-header {
     position: relative;
     width: 100%;
-    /* height controls how tall the whole top area is */
-    padding-top: 40px;       /* space above header */
+    padding-top: 40px;      /* space above the header */
 }
 
-/* the wave sits behind everything in hero-header */
+/* wave sits behind and above the header */
 .hero-wave {
     position: absolute;
-    top: -80px;              /* move up so it starts above header */
+    top: -120px;            /* move it up so the curve hangs down over header */
     left: 0;
     width: 100%;
-    height: 260px;           /* make wave tall */
+    height: 280px;          /* adjust for how dramatic you want the curve */
     display: block;
 
-    transform: scaleY(-1);   /* flip vertically */
-    transform-origin: center;
-
-    z-index: -1;             /* behind header, but still inside hero-header */
-    pointer-events: none;    /* don’t block clicks */
+    z-index: -1;            /* behind header, but still inside hero-header */
+    pointer-events: none;
 }
