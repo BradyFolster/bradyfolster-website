@@ -52,20 +52,26 @@
     color: rgb(46, 46, 46);
 }
 
-.hero-wave-wrapper {
+/* Wave styling */
+.hero-header {
     position: relative;
     width: 100%;
-    height: 240px;        /* ⬅ taller wave area */
-    overflow: hidden;
+    /* height controls how tall the whole top area is */
+    padding-top: 40px;       /* space above header */
 }
 
+/* the wave sits behind everything in hero-header */
 .hero-wave {
-    width: 100%;
-    height: 260px;        /* ⬅ wave itself is taller */
-    transform: scaleY(-1); /* ⬅ flips the wave upside down */
-    display: block;
     position: absolute;
-    top: -60px;            /* ⬅ moves it UP so it flows behind header */
+    top: -80px;              /* move up so it starts above header */
     left: 0;
-    z-index: -1;           /* ⬅ puts it behind the header */
+    width: 100%;
+    height: 260px;           /* make wave tall */
+    display: block;
+
+    transform: scaleY(-1);   /* flip vertically */
+    transform-origin: center;
+
+    z-index: -1;             /* behind header, but still inside hero-header */
+    pointer-events: none;    /* don’t block clicks */
 }
