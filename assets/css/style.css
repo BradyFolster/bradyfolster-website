@@ -28,7 +28,16 @@ body {
 /* Main content area between header and footer */
 .page_content {
     flex: 1 0 auto;
-    width: 100%;
+    margin-left:auto;
+    margin-right:auto;
+    width: 90%;
+    height:fit-content;
+    background: rgba(140, 140, 140, 0.23);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.1px);
+    -webkit-backdrop-filter: blur(7.1px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 /* Header + footer should not shrink */
@@ -37,9 +46,7 @@ body {
     flex-shrink: 0;
 }
 
-/* -----------------------
-   Hero wave + header
------------------------- */
+/* Wave + Header */
 
 /* Wrapper for wave + header */
 .hero-header {
@@ -124,10 +131,7 @@ body {
     color: rgb(46, 46, 46);
 }
 
-/* -----------------------
-   Footer
------------------------- */
-
+/* Footer */
 .site_footer {
     width: 100%;
     background: rgba(255, 255, 255, 0.23);
