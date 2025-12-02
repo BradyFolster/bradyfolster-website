@@ -11,7 +11,7 @@ $(document).ready(function()    {
                 finalOutput += '<p>'+item.description+'</p></div>'
             });
             console.log(finalOutput);
-            $('.pagecontent').append(finalOutput);
+            $('.projectbody').html(finalOutput);
         }
     });
 });
