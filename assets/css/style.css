@@ -70,3 +70,49 @@
     z-index: 0;             /* ⬅ NOT -1 anymore */
     pointer-events: none;
 }
+
+/* Footer styling */
+.site_footer {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.23);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.1px);
+    -webkit-backdrop-filter: blur(7.1px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    margin-top: 60px;
+    padding: 20px 30px;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    z-index: 1; /* keeps it above any background shapes */
+}
+
+/* Layout inside the footer */
+.footer_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  /* pushes left text + right links */
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Links in the footer */
+.footer_links {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.footer_link {
+    text-decoration: none;
+    color: black;
+    border-bottom: 3px solid transparent;
+    border-radius: 3px;
+    transition: border-bottom-color 0.2s ease, color 0.2s ease;
+}
+
+.footer_link:hover {
+    border-bottom-color: rgb(156, 197, 161); /* your mint green */
+    color: rgb(46, 46, 46);
+}
