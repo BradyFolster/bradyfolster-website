@@ -30,6 +30,8 @@ body {
     flex: 1 0 auto;
     margin-left:auto;
     margin-right:auto;
+    margin-top: 30px;
+    margin-bottom:5px;
     width: 90%;
     height:fit-content;
     background: rgba(140, 140, 140, 0.23);
