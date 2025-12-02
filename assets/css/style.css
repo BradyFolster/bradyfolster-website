@@ -178,3 +178,30 @@ body {
     border-bottom-color: rgb(156, 197, 161);
     color: rgb(46, 46, 46);
 }
+/* Mobile adjustments */
+@media (max-width: 600px) {
+
+    /* Make nav items wrap or go to the next line */
+    .nav {
+        flex-wrap: wrap;         /* allows items to break to the next line */
+        gap: 1rem;               /* less spacing on small screens */
+        padding: 0 10px;         /* tighten padding */
+        height: auto;            /* let nav grow vertically */
+    }
+
+    .nav_logo {
+        height: 50px;            /* slightly smaller logo */
+        width: 50px;
+    }
+
+    /* Make links smaller & prevent crowding */
+    .nav_link {
+        font-size: 0.9rem;
+        padding-bottom: 2px;
+    }
+
+    /* Allow links to wrap neatly under or beside the logo */
+    .nav_link {
+        white-space: nowrap;
+    }
+}
