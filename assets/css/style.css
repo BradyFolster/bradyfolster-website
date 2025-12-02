@@ -41,6 +41,7 @@ body {
     backdrop-filter: blur(7.1px);
     -webkit-backdrop-filter: blur(7.1px);
     border: 1px solid rgba(255, 255, 255, 0.4);
+    text-align:center;
 }
 /* Title on each page */
 .title  {
@@ -50,6 +51,21 @@ body {
 /* Body text (like on the main page) (paragraph elements) */
 .body_text  {
     text-align:center;
+}
+.bodylink   {
+    margin-left:8px;
+    margin-right:8px;
+    color: black;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 3px;
+    transition:
+        color 0.2s ease,
+        border-bottom-color 0.2s ease;
+}
+.bodylink:hover {
+    border-bottom-color: rgb(156, 197, 161);
+    color: rgb(46, 46, 46);
 }
 
 /* Header + footer should not shrink */
@@ -194,6 +210,8 @@ body {
     border-bottom-color: rgb(156, 197, 161);
     color: rgb(46, 46, 46);
 }
+
+
 /* Mobile adjustments */
 @media (max-width: 600px) {
 
