@@ -1,3 +1,35 @@
+/* Global layout for sticky footer */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Everything between header and footer */
+.page-content {
+    flex: 1 0 auto;   /* grows to fill space, pushes footer down */
+    width: 100%;
+}
+
+/* Make sure header + footer don’t try to shrink */
+.hero-header {
+    flex-shrink: 0;
+}
+
+.site_footer {
+    flex-shrink: 0;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -102,9 +134,12 @@ body {
 
     position: relative;
     z-index: 1;
-    /* no margin-top here – layout will handle vertical position */
+
+    /* prevent content from touching edge on very small screens */
+    overflow: hidden;
 }
 
+/* Inner layout of footer */
 .footer_content {
     display: flex;
     align-items: center;
@@ -116,7 +151,8 @@ body {
 /* Links in the footer */
 .footer_links {
     display: flex;
-    gap: 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
 }
 
 .footer_link {
@@ -125,6 +161,7 @@ body {
     border-bottom: 3px solid transparent;
     border-radius: 3px;
     transition: border-bottom-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap;  /* keeps each link on one line */
 }
 
 .footer_link:hover {
