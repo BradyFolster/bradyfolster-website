@@ -6,12 +6,11 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
 /* Whatever wraps your main content between header and footer */
-main {
-    flex: 1;  /* pushes footer to the bottom when content is short */
+.page-content {
+    flex: 1;
 }
 
 /* Styling for the top menu bar */
@@ -98,12 +97,12 @@ main {
     border: 1px solid rgba(255, 255, 255, 0.4);
 
     padding: 8px 16px;  /* compact height */
-    margin-top: 24px;   /* small gap above footer */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.9rem;
 
     position: relative;
     z-index: 1;
+    /* no margin-top here – layout will handle vertical position */
 }
 
 .footer_content {
