@@ -51,6 +51,9 @@ body {
 /* Body text (like on the main page) (paragraph elements) */
 .body_text  {
     text-align:center;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
 }
 .bodylink   {
     margin-left:-20px;
