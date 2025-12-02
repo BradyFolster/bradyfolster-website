@@ -10,6 +10,7 @@ $(document).ready(function()    {
                 finalOutput += '<a href="'+item.link+'" target="_blank">Link</a>'
                 finalOutput += '<p>'+item.description+'</p>'
             });
+            console.log(finalOutput);
             $('.pagecontent').append(finalOutput);
         }
     });
