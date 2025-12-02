@@ -1,0 +1,7 @@
+/* Styling for the top menu bar */
+.nav_logo    {
+    background-image: url('/assets/img/favicon.png');
+    background-color:red;
+    height:20px;
+    width:20px;
+}
