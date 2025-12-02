@@ -1,3 +1,26 @@
+/* Make the page fill the viewport */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Wrapper that uses flexbox to push footer to the bottom */
+.page_wrapper {
+    min-height: 100vh;          /* at least full viewport height */
+    display: flex;
+    flex-direction: column;
+}
+
+/* This is your content area between header and footer */
+.page_content {
+    flex: 1;                    /* takes up all remaining space */
+}
+
+/* Ensure header and footer don't shrink */
+.hero-header,
+.site_footer {
+    flex-shrink: 0;
+}
 /* Global layout for sticky footer */
 *,
 *::before,
