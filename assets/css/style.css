@@ -1,147 +1,133 @@
-/* Make the page fill the viewport */
-html, body {
-    height: 100%;
-    margin: 0;
-}
+/* -----------------------
+   Global reset & layout
+------------------------ */
 
-/* Wrapper that uses flexbox to push footer to the bottom */
-.page_wrapper {
-    min-height: 100vh;          /* at least full viewport height */
-    display: flex;
-    flex-direction: column;
-}
-
-/* This is your content area between header and footer */
-.page_content {
-    flex: 1;                    /* takes up all remaining space */
-}
-
-/* Ensure header and footer don't shrink */
-.hero-header,
-.site_footer {
-    flex-shrink: 0;
-}
-/* Global layout for sticky footer */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
 }
 
 body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Flex wrapper to push footer to bottom */
+.page_wrapper {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* Everything between header and footer */
-.page-content {
-    flex: 1 0 auto;   /* grows to fill space, pushes footer down */
+/* Main content area between header and footer */
+.page_content {
+    flex: 1 0 auto;
     width: 100%;
 }
 
-/* Make sure header + footer don’t try to shrink */
-.hero-header {
-    flex-shrink: 0;
-}
-
+/* Header + footer should not shrink */
+.hero-header,
 .site_footer {
     flex-shrink: 0;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
+/* -----------------------
+   Hero wave + header
+------------------------ */
+
+/* Wrapper for wave + header */
+.hero-header {
+    position: relative;
+    width: 100%;
+    padding-top: 20px;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
+/* Wave background */
+.hero-wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 320px;    /* adjust to taste for how far it dips */
+    display: block;
+    z-index: 0;
+    pointer-events: none;
 }
 
-/* Whatever wraps your main content between header and footer */
-.page-content {
-    flex: 1;
-}
-
-/* Styling for the top menu bar */
-.site_header    {
-    position:relative;
+/* Top menu bar */
+.site_header {
+    position: relative;
     z-index: 1;
-    height:100px;
-    width:100%;
+    height: 100px;
+    width: 100%;
     background: rgba(255, 255, 255, 0.23);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(7.1px);
     -webkit-backdrop-filter: blur(7.1px);
     border: 1px solid rgba(255, 255, 255, 0.4);
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.nav    {
-    height:100px;
-    display:flex;
-    align-items:center;
-    justify-content:flex-start;
-    gap:2rem;
-    padding-left:15px;
-    padding-right:px;
+
+/* Nav layout */
+.nav {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    padding: 0 15px;
 }
-.nav_logo    {
-    display:block;
+
+/* Logo in nav */
+.nav_logo {
+    display: block;
     background-image: url('/assets/img/favicon.png');
     background-size: cover;
-    height:60px;
-    width:60px;
     background-position: center;
-    text-indent:-9999px;
-    overflow:hidden;
-    top:auto;
-    border-radius:50px;
+    height: 60px;
+    width: 60px;
+    text-indent: -9999px;
+    overflow: hidden;
+    border-radius: 50px;
     box-shadow: 2px 2px 2px transparent;
-    transition: height 0.2s ease, width 0.2s ease, box-shadow 0.2s ease;
+    transition:
+        height 0.2s ease,
+        width 0.2s ease,
+        box-shadow 0.2s ease;
 }
+
 .nav_logo:hover {
     height: 70px;
     width: 70px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.568);
 }
-.nav_link   {
-    color:black;
-    text-decoration:none;
+
+/* Nav links */
+.nav_link {
+    color: black;
+    text-decoration: none;
     border-bottom: 3px solid transparent;
     border-radius: 3px;
-    transition: color 0.2s ease,
-    border-bottom-color 0.2s ease;
+    transition:
+        color 0.2s ease,
+        border-bottom-color 0.2s ease;
 }
+
 .nav_link:hover {
     border-bottom-color: rgb(156, 197, 161);
     color: rgb(46, 46, 46);
 }
 
-/* Wave styling */
-.hero-header {
-    position: relative;
-    width: 100%;
-    padding-top: 20px;      /* you can tweak this */
-}
+/* -----------------------
+   Footer
+------------------------ */
 
-.hero-wave {
-    position: absolute;
-    top: 0px;              /* ⬅ move it DOWN below the header */
-    left: 0;
-    width: 100%;
-    height: 320px;
-    display: block;
-    z-index: 0;             /* ⬅ NOT -1 anymore */
-    pointer-events: none;
-}
-
-/* Footer styling */
 .site_footer {
     width: 100%;
     background: rgba(255, 255, 255, 0.23);
@@ -151,15 +137,14 @@ body {
     -webkit-backdrop-filter: blur(7.1px);
     border: 1px solid rgba(255, 255, 255, 0.4);
 
-    padding: 8px 16px;  /* compact height */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 8px 16px;      /* compact height */
     font-size: 0.9rem;
-
     position: relative;
     z-index: 1;
-
-    /* prevent content from touching edge on very small screens */
     overflow: hidden;
+
+    /* in case it's inside .page_wrapper flex column */
+    margin-top: auto;
 }
 
 /* Inner layout of footer */
@@ -171,7 +156,7 @@ body {
     flex-wrap: wrap;
 }
 
-/* Links in the footer */
+/* Footer links */
 .footer_links {
     display: flex;
     flex-wrap: wrap;
@@ -183,11 +168,13 @@ body {
     color: black;
     border-bottom: 3px solid transparent;
     border-radius: 3px;
-    transition: border-bottom-color 0.2s ease, color 0.2s ease;
-    white-space: nowrap;  /* keeps each link on one line */
+    transition:
+        border-bottom-color 0.2s ease,
+        color 0.2s ease;
+    white-space: nowrap;   /* keeps each link on one line */
 }
 
 .footer_link:hover {
-    border-bottom-color: rgb(156, 197, 161); /* your mint green */
+    border-bottom-color: rgb(156, 197, 161);
     color: rgb(46, 46, 46);
 }
