@@ -48,6 +48,7 @@ body {
 .title  {
     text-align:center;
     font-size:40px;
+    margin:39px;
 }
 /* Body text (like on the main page) (paragraph elements) */
 .body_text  {
