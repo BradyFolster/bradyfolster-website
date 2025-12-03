@@ -5,5 +5,11 @@
         "link": "https://www.bradyfolster.com",
         "image": "/assets/img/portfoliowebsite.png",
         "description": "This website that you are currently on was written entirely by hand as an exercise in HTML, CSS, and JavaScript! It has allowed me to vastly grow my knowledge in these fields through a practical and useful medium."
+    },
+    {
+        "name": "test",
+        "date": "test",
+        "image": "/assets/img/favicon.png",
+        "description": "test"
     }
 ]
