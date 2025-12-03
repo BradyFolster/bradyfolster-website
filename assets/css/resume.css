@@ -58,6 +58,6 @@ body {
 }
 
 /* Required by pdf_viewer.css – page container */
-#pageContainer1 {
+#pdf-container .page {
   margin: 0 auto;
 }
