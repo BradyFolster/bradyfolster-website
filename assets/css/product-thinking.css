@@ -1,3 +1,7 @@
 .productbox h3 {
     font-weight:lighter;
+    margin-bottom:0;
+}
+.productbox p   {
+    margin-top:0;
 }
