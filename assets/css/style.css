@@ -175,7 +175,6 @@ ul li ul li {
 .nav_logo:hover {
     height: 70px;
     width: 70px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.568);
 }
 
 /* Nav links */
