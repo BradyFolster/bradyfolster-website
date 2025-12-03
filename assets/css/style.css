@@ -167,12 +167,9 @@ ul li ul li {
     width: 60px;
     text-indent: -9999px;
     overflow: hidden;
-    border-radius: 50px;
-    box-shadow: 2px 2px 2px transparent;
     transition:
         height 0.2s ease,
-        width 0.2s ease,
-        box-shadow 0.2s ease;
+        width 0.2s ease;
 }
 
 .nav_logo:hover {
