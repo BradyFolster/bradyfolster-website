@@ -1,9 +1,9 @@
-.productbox h3 {
+.productcontainer h3 {
     font-weight:lighter;
     margin-bottom:0;
-    text-decoration: solid;
+    text-decoration: underline;
 }
-.productbox p   {
+.productcontainer p   {
     margin-top:0;
 }
 .productcontainer {
