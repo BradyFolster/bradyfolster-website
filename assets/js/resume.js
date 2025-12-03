@@ -143,3 +143,7 @@ document.getElementById("download-pdf").addEventListener("click", () => {
   link.click();
   document.body.removeChild(link);
 });
+// ====== Reset zoom to 100% when clicking the zoom label ======
+document.getElementById("zoom-level").addEventListener("click", () => {
+  setScale(1.0);   // reset to 100%
+});
