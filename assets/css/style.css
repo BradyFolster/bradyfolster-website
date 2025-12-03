@@ -263,12 +263,13 @@ ul li ul li {
     border: 1px solid rgba(150, 200, 170, 0.15);
     border-radius:30px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    display:flex;
+    align-items:center;
 }
 .projectbox img {
     height: auto;
     width:80%;
     display:block;
-    align-self:center;
 }
 .projectbox a   {
     color: black;
