@@ -1,5 +1,5 @@
 // ====== CONFIG ======
-const PDF_URL = "/assets/pds/Resume.pdf";
+const PDF_URL = "/assets/pdf/Resume.pdf";
 const ZOOM_STEP = 0.25;
 const MIN_ZOOM = 0.5;
 const MAX_ZOOM = 4.0;
