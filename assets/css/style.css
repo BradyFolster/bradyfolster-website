@@ -263,6 +263,20 @@ ul li ul li {
 .projectbox img {
     height: 300px;
     width:auto;
+    display:block;
+}
+.projectbox a   {
+    color: black;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 3px;
+    transition:
+        color 0.2s ease,
+        border-bottom-color 0.2s ease;
+}
+.projectbox a:hover {
+    border-bottom-color: rgb(156, 197, 161);
+    color: rgb(46, 46, 46);
 }
 
 /* Mobile adjustments */
