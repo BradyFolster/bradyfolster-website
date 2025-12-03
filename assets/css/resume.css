@@ -1,97 +1,28 @@
-/* ============================
-   Resume PDF Viewer Styling
-   (blends with main site theme)
-   ============================ */
-
-/* Wrapper card around the viewer */
 #pdf-wrapper {
     margin: 2rem auto 1.5rem;
     max-width: 900px;
     width: 100%;
     padding: 1rem 1.25rem 1.5rem;
-
     background: rgba(255, 255, 255, 0.9);
     border-radius: 30px;
     border: 1px solid rgba(150, 200, 170, 0.15);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* Toolbar – matches header/footer glassmorphism */
 #pdf-toolbar {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-
     padding: 0.45rem 0.75rem;
     margin-bottom: 0.75rem;
-
     background: rgba(255, 255, 255, 0.85);
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.7);
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
-
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Buttons styled similar to links on the site */
-#pdf-toolbar button {
-    padding: 0.25rem 0.7rem;
-    border-radius: 999px;
-    border: 1px solid rgba(150, 200, 170, 0.35);
-
-    background: rgba(255, 255, 255, 0.95);
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-    transition:
-        background-color 0.2s ease,
-        border-color 0.2s ease,
-        color 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-#pdf-toolbar button:hover {
-    background: #f8fffa;
-    border-color: rgb(156, 197, 161);
-    color: rgb(46, 46, 46);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-}
-
-/* Zoom label text */
-#zoom-level {
-    min-width: 4ch;
-    text-align: right;
-    font-size: 0.9rem;
-}
-
-/* Right-aligned page info, in subtle text */
-#page-info {
-    margin-left: auto;
-    font-size: 0.85rem;
-    color: #444;
-}
-
-/* Viewer container: JS sets fixed height after first render */
-#pdf-container {
-    margin-top: 0.75rem;
-    height: auto;          /* JS will set a fixed px height */
-    overflow: hidden;      /* JS will change to auto later */
-
-    background: #e5f3ea;
-    border-radius: 22px;
-    padding: 0.75rem;
-
-    position: relative;
-}
-
-/* PDF.js page container – center it and give it a subtle shadow */
-#pdf-container .page {
-    margin: 0 auto;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-    background: #ffffff;
-    border-radius: 6px;
-}
+#pdf-toolbar button,
 #open-tab,
 #download-pdf {
     padding: 0.25rem 0.7rem;
@@ -108,6 +39,7 @@
         box-shadow 0.2s ease;
 }
 
+#pdf-toolbar button:hover,
 #open-tab:hover,
 #download-pdf:hover {
     background: #f8fffa;
@@ -115,7 +47,11 @@
     color: rgb(46, 46, 46);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
+
 #zoom-level {
+    min-width: 4ch;
+    text-align: right;
+    font-size: 0.9rem;
     cursor: pointer;
     user-select: none;
     color: black;
@@ -131,9 +67,29 @@
     border-bottom-color: rgb(156, 197, 161);
     color: rgb(46, 46, 46);
 }
-/* ============================
-   Responsive adjustments
-   ============================ */
+
+#page-info {
+    margin-left: auto;
+    font-size: 0.85rem;
+    color: #444;
+}
+
+#pdf-container {
+    margin-top: 0.75rem;
+    height: auto;
+    overflow: hidden;
+    background: #e5f3ea;
+    border-radius: 22px;
+    padding: 0.75rem;
+    position: relative;
+}
+
+#pdf-container .page {
+    margin: 0 auto;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    background: #ffffff;
+    border-radius: 6px;
+}
 
 @media (max-width: 900px) {
     #pdf-wrapper {
@@ -166,7 +122,9 @@
         text-align: center;
     }
 
-    #pdf-toolbar button {
+    #pdf-toolbar button,
+    #open-tab,
+    #download-pdf {
         font-size: 0.85rem;
         padding: 0.2rem 0.6rem;
     }
