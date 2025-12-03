@@ -9,8 +9,9 @@
 .productcontainer {
     display:flex;
     gap:20px;
+    flex-wrap:wrap;
 }
 .productflex    {
-    flex:1;
+    flex:0 0 50%;
 }
 /* TEST */
