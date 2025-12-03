@@ -79,8 +79,8 @@ pdfjsLib
       scale,
       defaultViewport: viewport,
       eventBus,
-      textLayerFactory: new pdfjsViewer.DefaultTextLayerFactory(),
-      annotationLayerFactory: new pdfjsViewer.DefaultAnnotationLayerFactory(),
+    //   textLayerFactory: new pdfjsViewer.DefaultTextLayerFactory(),
+    //   annotationLayerFactory: new pdfjsViewer.DefaultAnnotationLayerFactory(),
     });
 
     pdfPageView.setPdfPage(page);
