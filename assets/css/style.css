@@ -261,6 +261,7 @@ ul li ul li {
     min-width:250px;
     max-width:50%;
     border: 1px solid rgba(150, 200, 170, 0.15);
+    border-radius:30px;
 }
 .projectbox img {
     height: 300px;
