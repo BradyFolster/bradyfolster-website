@@ -52,7 +52,7 @@ body {
 
 #pdf-container {
   height: auto;
-  overflow:auto;
+  overflow:hidden;
   background: #e5e5e5;
   position: relative;
 }

@@ -22,24 +22,27 @@ let scale = 1.0;
 const zoomLevelSpan = document.getElementById("zoom-level");
 const pageInfoSpan = document.getElementById("page-info");
 
-// Resize the viewer container so its height matches the rendered page
-function resizeContainerToPage() {
-  if (!pdfPageView) return;
+// We only want to set the container height ONCE (after first render)
+let initialContainerHeightSet = false;
 
-  let height = null;
+function setInitialContainerHeight() {
+  if (!pdfPageView || initialContainerHeightSet) return;
 
-  // Prefer the viewport height if available
-  if (pdfPageView.viewport) {
+  let height = 0;
+
+  // Prefer actual rendered element height
+  if (pdfPageView.div) {
+    height = pdfPageView.div.offsetHeight;
+  } else if (pdfPageView.viewport) {
+    // Fallback to viewport height if needed
     height = pdfPageView.viewport.height;
   }
 
-  // Fallback to the actual DOM element height
-  if (!height && pdfPageView.div) {
-    height = pdfPageView.div.offsetHeight;
-  }
-
   if (height) {
-    container.style.height = height + "px";
+    container.style.height = height + "px"; // lock height
+    // allow internal scrolling once content gets bigger than this
+    container.style.overflow = "auto";
+    initialContainerHeightSet = true;
   }
 }
 
@@ -54,14 +57,13 @@ function setScale(newScale) {
   pdfPageView.update({ scale });
   pdfPageView.draw();
 
-  // Match container height to the new page height
-  resizeContainerToPage();
+  // NOTE: we do NOT change the container height here anymore.
+  // The height stays whatever it was after the first render.
   updateZoomLabel();
 }
 
 function fitWidth() {
   if (!pdfPageView || !pdfDoc) return;
-
   pdfDoc.getPage(currentPage).then((page) => {
     const viewport = page.getViewport({ scale: 1 });
     const containerWidth = container.clientWidth;
@@ -72,11 +74,12 @@ function fitWidth() {
 
 function fitPage() {
   if (!pdfPageView || !pdfDoc) return;
-
   pdfDoc.getPage(currentPage).then((page) => {
     const viewport = page.getViewport({ scale: 1 });
     const containerWidth = container.clientWidth;
-    const containerHeight = container.clientHeight || window.innerHeight * 0.9;
+    // Use the current locked height or, if not set yet, container/client height
+    const containerHeight =
+      parseFloat(container.style.height) || container.clientHeight || window.innerHeight * 0.9;
 
     const scaleWidth = containerWidth / viewport.width;
     const scaleHeight = containerHeight / viewport.height;
@@ -103,14 +106,14 @@ pdfjsLib
       scale,
       defaultViewport: viewport,
       eventBus,
-      // No textLayerFactory / annotationLayerFactory here
+      // textLayerFactory / annotationLayerFactory intentionally omitted
     });
 
     pdfPageView.setPdfPage(page);
     pdfPageView.draw();
 
-    // Make the container match the page height on initial render
-    resizeContainerToPage();
+    // After the first render, lock the container height to the page height
+    setInitialContainerHeight();
     updateZoomLabel();
   });
 
