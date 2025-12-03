@@ -259,6 +259,7 @@ ul li ul li {
 }
 .projectbox {
     min-width:250px;
+    max-width:50%;
 }
 .projectbox img {
     height: 300px;
