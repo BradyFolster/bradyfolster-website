@@ -5,8 +5,10 @@ layout: null
 <head>
     {% include head.html %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf_viewer.min.js"></script>
     <script src="/assets/js/resume.js"></script>
-    <link rel="stylesheet" type="text/css" href="/bradyfolster-website/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf_viewer.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/resume.css">
 </head>
 <body>
     <div class="page_wrapper">
@@ -14,7 +16,19 @@ layout: null
 
         <div class="page_content">
             <h1 class="title">Resume</h1>
-            <canvas id="pdf-canvas"></canvas>
+             <div id="pdf-wrapper">
+                <div id="pdf-toolbar">
+                    <button id="zoom-out">-</button>
+                    <span id="zoom-level">100%</span>
+                    <button id="zoom-in">+</button>
+                    <button id="fit-width">Fit width</button>
+                    <button id="fit-page">Fit page</button>
+                    <span id="page-info">Page 1 of 1</span>
+                </div>
+                    <div id="pdf-container" class="pdfViewer">
+                        <div id="pageContainer1" class="page"></div>
+                    </div>
+                </div>
         </div>
     </div>
     {% include footer.html %}

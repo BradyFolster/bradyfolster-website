@@ -1,19 +1,101 @@
-const url = '/assets/pdf/Resume.pdf';
+// ====== CONFIG ======
+const PDF_URL = "yourfile.pdf"; // <-- put your PDF path here
+const ZOOM_STEP = 0.25;
+const MIN_ZOOM = 0.5;
+const MAX_ZOOM = 4.0;
 
-const pdfjsLib = window['pdfjs-dist/build/pdf'];
+// ====== PDF.js setup ======
+const pdfjsLib = window["pdfjs-dist/build/pdf"];
+const pdfjsViewer = window["pdfjs-dist/web/pdf_viewer"];
 
-pdfjsLib.getDocument(url).promise.then(function(pdf) {
-    pdf.getPage(1).then(function(page) {
-        const viewport = page.getViewport({ scale: 1.2 });
-        const canvas = document.getElementById("pdf-canvas");
-        const context = canvas.getContext('2d');
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
+const eventBus = new pdfjsViewer.EventBus();
+const container = document.getElementById("pdf-container");
 
-        page.render({
-            canvasContext: context,
-            viewport: viewport
-        });
+let pdfDoc = null;
+let pdfPageView = null;
+let currentPage = 1;
+let scale = 1.0;
+
+const zoomLevelSpan = document.getElementById("zoom-level");
+const pageInfoSpan = document.getElementById("page-info");
+
+function updateZoomLabel() {
+  zoomLevelSpan.textContent = Math.round(scale * 100) + "%";
+}
+
+function setScale(newScale) {
+  scale = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, newScale));
+  if (!pdfPageView) return;
+  pdfPageView.update({ scale });
+  pdfPageView.draw();
+  updateZoomLabel();
+}
+
+function fitWidth() {
+  if (!pdfPageView || !pdfDoc) return;
+  pdfDoc.getPage(currentPage).then((page) => {
+    const viewport = page.getViewport({ scale: 1 });
+    const containerWidth = container.clientWidth;
+    const newScale = containerWidth / viewport.width;
+    setScale(newScale);
+  });
+}
+
+function fitPage() {
+  if (!pdfPageView || !pdfDoc) return;
+  pdfDoc.getPage(currentPage).then((page) => {
+    const viewport = page.getViewport({ scale: 1 });
+    const containerWidth = container.clientWidth;
+    const containerHeight = container.clientHeight;
+
+    const scaleWidth = containerWidth / viewport.width;
+    const scaleHeight = containerHeight / viewport.height;
+    const newScale = Math.min(scaleWidth, scaleHeight);
+    setScale(newScale);
+  });
+}
+
+// Load the PDF and first (only) page
+pdfjsLib
+  .getDocument(PDF_URL)
+  .promise.then((doc) => {
+    pdfDoc = doc;
+    pageInfoSpan.textContent = `Page ${currentPage} of ${pdfDoc.numPages}`;
+    return pdfDoc.getPage(currentPage);
+  })
+  .then((page) => {
+    const viewport = page.getViewport({ scale });
+
+    // Create a PDFPageView with:
+    // - canvas rendering
+    // - text layer (selectable text)
+    // - annotation layer (clickable links)
+    pdfPageView = new pdfjsViewer.PDFPageView({
+      container,
+      id: currentPage,
+      scale,
+      defaultViewport: viewport,
+      eventBus,
+      textLayerFactory: new pdfjsViewer.DefaultTextLayerFactory(),
+      annotationLayerFactory: new pdfjsViewer.DefaultAnnotationLayerFactory(),
     });
+
+    pdfPageView.setPdfPage(page);
+    pdfPageView.draw();
+    updateZoomLabel();
+  });
+
+// ====== Toolbar events ======
+document.getElementById("zoom-in").addEventListener("click", () => {
+  setScale(scale + ZOOM_STEP);
 });
+
+document.getElementById("zoom-out").addEventListener("click", () => {
+  setScale(scale - ZOOM_STEP);
+});
+
+document.getElementById("fit-width").addEventListener("click", fitWidth);
+document.getElementById("fit-page").addEventListener("click", fitPage);
