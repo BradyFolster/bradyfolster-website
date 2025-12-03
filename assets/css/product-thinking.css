@@ -6,7 +6,7 @@
 .productbox p   {
     margin-top:0;
 }
-.productbox {
+.productcontainer {
     display:flex;
     gap:20px;
 }
