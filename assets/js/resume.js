@@ -22,6 +22,27 @@ let scale = 1.0;
 const zoomLevelSpan = document.getElementById("zoom-level");
 const pageInfoSpan = document.getElementById("page-info");
 
+// Resize the viewer container so its height matches the rendered page
+function resizeContainerToPage() {
+  if (!pdfPageView) return;
+
+  let height = null;
+
+  // Prefer the viewport height if available
+  if (pdfPageView.viewport) {
+    height = pdfPageView.viewport.height;
+  }
+
+  // Fallback to the actual DOM element height
+  if (!height && pdfPageView.div) {
+    height = pdfPageView.div.offsetHeight;
+  }
+
+  if (height) {
+    container.style.height = height + "px";
+  }
+}
+
 function updateZoomLabel() {
   zoomLevelSpan.textContent = Math.round(scale * 100) + "%";
 }
@@ -29,13 +50,18 @@ function updateZoomLabel() {
 function setScale(newScale) {
   scale = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, newScale));
   if (!pdfPageView) return;
+
   pdfPageView.update({ scale });
   pdfPageView.draw();
+
+  // Match container height to the new page height
+  resizeContainerToPage();
   updateZoomLabel();
 }
 
 function fitWidth() {
   if (!pdfPageView || !pdfDoc) return;
+
   pdfDoc.getPage(currentPage).then((page) => {
     const viewport = page.getViewport({ scale: 1 });
     const containerWidth = container.clientWidth;
@@ -46,10 +72,11 @@ function fitWidth() {
 
 function fitPage() {
   if (!pdfPageView || !pdfDoc) return;
+
   pdfDoc.getPage(currentPage).then((page) => {
     const viewport = page.getViewport({ scale: 1 });
     const containerWidth = container.clientWidth;
-    const containerHeight = container.clientHeight;
+    const containerHeight = container.clientHeight || window.innerHeight * 0.9;
 
     const scaleWidth = containerWidth / viewport.width;
     const scaleHeight = containerHeight / viewport.height;
@@ -69,22 +96,21 @@ pdfjsLib
   .then((page) => {
     const viewport = page.getViewport({ scale });
 
-    // Create a PDFPageView with:
-    // - canvas rendering
-    // - text layer (selectable text)
-    // - annotation layer (clickable links)
+    // Create a PDFPageView with canvas rendering only
     pdfPageView = new pdfjsViewer.PDFPageView({
       container,
       id: currentPage,
       scale,
       defaultViewport: viewport,
       eventBus,
-    //   textLayerFactory: new pdfjsViewer.DefaultTextLayerFactory(),
-    //   annotationLayerFactory: new pdfjsViewer.DefaultAnnotationLayerFactory(),
+      // No textLayerFactory / annotationLayerFactory here
     });
 
     pdfPageView.setPdfPage(page);
     pdfPageView.draw();
+
+    // Make the container match the page height on initial render
+    resizeContainerToPage();
     updateZoomLabel();
   });
 
