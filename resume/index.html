@@ -4,6 +4,8 @@ layout: null
 <!DOCTYPE html>
 <head>
     {% include head.html %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="/assets/js/resume.js"></script>
     <link rel="stylesheet" type="text/css" href="/bradyfolster-website/assets/css/style.css">
 </head>
 <body>
@@ -12,7 +14,8 @@ layout: null
 
         <div class="page_content">
             <h1 class="title">Resume</h1>
-
+            <canvas id="pdf-canvas"></canvas>
+        </div>
     </div>
     {% include footer.html %}
 
