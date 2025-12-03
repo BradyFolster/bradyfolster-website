@@ -128,3 +128,18 @@ document.getElementById("zoom-out").addEventListener("click", () => {
 
 document.getElementById("fit-width").addEventListener("click", fitWidth);
 document.getElementById("fit-page").addEventListener("click", fitPage);
+
+// ====== Open in New Tab ======
+document.getElementById("open-tab").addEventListener("click", () => {
+  window.open(PDF_URL, "_blank");
+});
+
+// ====== Download ======
+document.getElementById("download-pdf").addEventListener("click", () => {
+  const link = document.createElement("a");
+  link.href = PDF_URL;
+  link.download = PDF_URL.split("/").pop(); // "Resume.pdf"
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+});
