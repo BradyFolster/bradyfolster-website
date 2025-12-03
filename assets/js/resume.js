@@ -147,3 +147,18 @@ document.getElementById("download-pdf").addEventListener("click", () => {
 document.getElementById("zoom-level").addEventListener("click", () => {
   setScale(1.0);   // reset to 100%
 });
+// ====== Ctrl+scroll & pinch-to-zoom support ======
+// Many desktop browsers report pinch-zoom on a trackpad as a wheel event
+// with event.ctrlKey === true. We use that to zoom the PDF instead of the page.
+container.addEventListener("wheel", (event) => {
+  // Only intercept if Ctrl (or Cmd on macOS) is pressed – covers ctrl+scroll and pinch
+  if (!event.ctrlKey && !event.metaKey) return;
+
+  event.preventDefault();
+
+  // deltaY > 0 => zoom out, deltaY < 0 => zoom in
+  const direction = event.deltaY > 0 ? -1 : 1;
+  const step = ZOOM_STEP * 0.5; // smaller step feels smoother for wheel zoom
+
+  setScale(scale + direction * step);
+}, { passive: false });
