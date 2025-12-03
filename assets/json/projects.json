@@ -2,7 +2,7 @@
     {
         "name": "Portfolio Website",
         "date": "December 2025",
-        "link": "www.bradyfolster.com",
+        "link": "https://www.bradyfolster.com",
         "image": "/assets/img/portfoliowebsite.png",
         "description": "This website that you are currently on was written entirely by hand as an exercise in HTML, CSS, and JavaScript! It has allowed me to vastly grow my knowledge in these field through a practical and useful medium."
     }
