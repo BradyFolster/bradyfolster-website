@@ -3,6 +3,9 @@
     margin-bottom:0;
     border-bottom:1px solid black;
 }
+.projectbox h2  {
+    font-weight:600;
+}
 .productcontainer p   {
     margin-top:0;
 }
