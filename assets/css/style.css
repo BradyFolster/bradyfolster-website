@@ -78,16 +78,19 @@ body {
 
 /* Columns for the skills page */
 #skillsbody {
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap:40px;
+    display:flex;
     text-align:left;
-    vertical-align: top;
-    overflow:visible;
-    align-items:flex-start;
+    gap: 20px;
+    justify-content:center;
 }
 .skillscol  {
     margin-bottom:35px;
+    flex: 0 0 calc(33%-40px);
+    min-width: 250px;
+    box-sizing: border-box;
+    border: 1px solid rgba(150, 200, 170, 0.15);
+    border-radius:30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 #skillsbody h2  {
     margin-bottom:12px;
