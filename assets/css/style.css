@@ -82,6 +82,7 @@ body {
     text-align:left;
     gap: 20px;
     justify-content:center;
+    flex-wrap:wrap;
 }
 .skillscol  {
     margin-bottom:35px;
@@ -95,7 +96,8 @@ body {
 #skillsbody h2  {
     margin-bottom:12px;
     font-weight:600;
-    border-bottom:1px solid black
+    justify-self:center;
+    text-align:center;
 }
 #skillsbody ul  {
     margin:0;
