@@ -10,9 +10,9 @@
     display:flex;
     gap:20px;
     flex-wrap:wrap;
-    align-items:center;
 }
 .productflex    {
     flex:0 0 calc(50% - 20px);
+    padding: 0 20px;
 }
 /* TEST */
