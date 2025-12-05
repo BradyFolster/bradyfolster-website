@@ -41,3 +41,16 @@
     border-bottom-color: rgb(156, 197, 161);
     color: rgb(46, 46, 46);
 }
+.inbodylink {
+    color: black;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 3px;
+    transition:
+        color 0.2s ease,
+        border-bottom-color 0.2s ease;
+}
+.inbodylink:hover  {
+    border-bottom-color: rgb(156, 197, 161);
+    color: rgb(46, 46, 46);
+}
