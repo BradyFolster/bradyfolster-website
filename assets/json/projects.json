@@ -1,7 +1,7 @@
 [
     {
         "name": "Portfolio Website",
-        "link": "https://www.bradyfolster.com",
+        "link": "https://github.com/BradyFolster/bradyfolster-website",
         "image": "/assets/img/portfoliowebsite.png",
         "description": "This website that you are currently on was written entirely by hand as an exercise in HTML, CSS, and JavaScript! It has allowed me to vastly grow my knowledge in these fields through a practical and useful medium."
     }
