@@ -5,6 +5,9 @@
 .projectbox h2  {
     font-weight:600;
 }
+.projectbox {
+    padding: 20px;
+}
 .productcontainer p   {
     margin-top:0;
 }
