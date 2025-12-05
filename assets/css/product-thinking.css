@@ -20,6 +20,7 @@
 .productflex    {
     flex:0 0 calc(50% - 20px);
     padding: 0 20px;
+    width:auto;
 }
 .h2_link    {
     display: block;
