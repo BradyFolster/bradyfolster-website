@@ -1,13 +1,15 @@
 [
     {
         "name": "Extinction Defense",
-        "link": "https://github.com/BradyFolster/Extinction-Defense",
+        "github": "https://github.com/BradyFolster/Extinction-Defense",
+        "link": "/projects/extinction-defense/",
         "image": "/assets/img/extinction_defense.png",
         "description": "Extinction Defense is a cross-platform dinosaur tower-defense game built from scratch in C++ with SDL2, featuring 12 unique towers, 18 enemy types, and a full 120-wave progression system."
     },
     {
         "name": "Portfolio Website",
-        "link": "https://github.com/BradyFolster/bradyfolster-website",
+        "github": "https://github.com/BradyFolster/bradyfolster-website",
+        "link": "/projects/portfolio-website/",
         "image": "/assets/img/portfoliowebsite.png",
         "description": "This website that you are currently on was written entirely by hand as an exercise in HTML, CSS, and JavaScript! It has allowed me to vastly grow my knowledge in these fields through a practical and useful medium."
     }
