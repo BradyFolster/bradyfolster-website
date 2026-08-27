@@ -274,8 +274,9 @@ ul li ul li {
     height: auto;
     width:80%;
     display:block;
+    margin: 0 auto;
 }
-.projectbox a   {
+.projectbox .title-link {
     color: black;
     text-decoration: none;
     border-bottom: 3px solid transparent;
@@ -284,9 +285,19 @@ ul li ul li {
         color 0.2s ease,
         border-bottom-color 0.2s ease;
 }
-.projectbox a:hover {
+.projectbox .title-link:hover {
     border-bottom-color: rgb(156, 197, 161);
     color: rgb(46, 46, 46);
+}
+.projectbox .image-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    border-bottom: none;
+}
+.projectbox .image-link:hover {
+    border-bottom: none;
 }
 
 /* Mobile adjustments */
