@@ -309,6 +309,7 @@ ul li ul li {
     text-decoration: none;
     border-bottom: 3px solid transparent;
     border-radius: 3px;
+    margin-top: auto;
     transition:
         color 0.2s ease,
         border-bottom-color 0.2s ease;
@@ -316,6 +317,9 @@ ul li ul li {
 .projectbox .github-link:hover {
     border-bottom-color: rgb(156, 197, 161);
     color: rgb(46, 46, 46);
+}
+.projectbox p {
+    margin: 0 0 10px;
 }
 
 /* Mobile adjustments */
