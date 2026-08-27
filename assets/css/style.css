@@ -285,6 +285,9 @@ ul li ul li {
         color 0.2s ease,
         border-bottom-color 0.2s ease;
 }
+.projectbox .title-link h2 {
+    margin: 0;
+}
 .projectbox .title-link:hover {
     border-bottom-color: rgb(156, 197, 161);
     color: rgb(46, 46, 46);
@@ -295,6 +298,7 @@ ul li ul li {
     text-align: center;
     text-decoration: none;
     border-bottom: none;
+    margin-top: 10px;
 }
 .projectbox .image-link:hover {
     border-bottom: none;
