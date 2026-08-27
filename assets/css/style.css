@@ -322,6 +322,42 @@ ul li ul li {
     margin: 0 0 10px;
 }
 
+/* Project detail layout for individual project pages */
+.project-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.project-detail-title {
+    margin: 0 0 20px;
+    font-size: 40px;
+}
+
+.project-detail-image {
+    display: block;
+    width: min(100%, 700px);
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 20px;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.project-detail-link {
+    font-size: 1.15rem;
+    margin-bottom: 20px;
+}
+
+.project-detail-manual {
+    margin-top: 10px;
+}
+
+.project-detail-manual .body_text {
+    max-width: 800px;
+}
+
 /* Mobile adjustments */
 @media (max-width: 600px) {
 
