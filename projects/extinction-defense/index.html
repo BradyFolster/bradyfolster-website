@@ -36,6 +36,10 @@ layout: null
                     Working this way forced me to think a lot more about program state than I would have if an engine were handling everything for me.
                     Menus, gameplay, settings, pausing, wave progression, tower selection, and other parts of the game all have to transition cleanly without interfering with one another.
                     <br><br>
+                    Using SDL2 instead of a full game engine was also a tradeoff.
+                    It significantly increased the amount of work required to reach a playable product, but it gave me much more control over the systems underneath the game and forced me to understand how they fit together.
+                    Throughout the project I've had to make similar decisions about when something was worth building myself and when I should use an existing tool or library.
+                    <br><br>
                     It also gave me experience working directly with SDL2 along with SDL_image, SDL_ttf, and SDL_mixer for graphics, fonts, and audio.
                 </p>
 
@@ -50,6 +54,10 @@ layout: null
                     <br><br>
                     That distinction is actually a core part of what makes Extinction Defense work;
                     Separate classes for new tower definitions and runtime-state towers allow me to differentiate between all different towers.
+                    <br><br>
+                    From the beginning, I wanted the game to be easy to understand, but still give the player meaningful choices.
+                    Each dinosaur should have an obvious purpose, but there shouldn't be one tower that is always the correct answer.
+                    I wanted players to slowly understand how the different systems interact and eventually build strategies of their own.
                 </p>
 
                 <br><br>
@@ -83,7 +91,7 @@ layout: null
                 </p>
 
                 <br><br>
-                <h3>Product Thinking</h3>
+                <h3>From Project to Product</h3>
                 <p class="body_text">
                     One of the most important things that I learned from this project was to constantly think about the user.
                     It doesn't matter if <i>I</i> could understand exactly how the program works, if the user can't understand it right away.
@@ -96,15 +104,48 @@ layout: null
                 </p>
 
                 <br><br>
+                <h3>Playtesting</h3>
+                <p class="body_text">
+                    While I am still in the process of playtesting, I can already see the benefits.
+                    My current playtesting loop is <b>Build -> Observe -> Identify Issues -> Prioritize -> Change -> Test Again</b>.
+                    <br><br>
+                    Having other people play the game has already changed the way develop it.
+                    Things that seemed completely obvious to me were confusing to others playing for the first time.
+                    Instead of explaining what the player was "supposed to do", I started paying attention to where they hesitated and what they misunderstood.
+                    <br><br>
+                    That feedack helped me decide what needed work instead of just adding whatever feature sounded interesting to me next.
+                </p>
+
+                <br><br>
                 <h3>Conclusions & Future</h3>
                 <p class="body_text">
                     Extinction Defense is still very much a work in progress, but I am proud of how far it has come.
                     It is now in a fully playable state, so I'm now working on adding more content, polishing the UI, and making the game overall feel more "professional".
                     <br><br>
+                    Another challenge was deciding what <i>not</i> to work on.
+                    It was easy to come up with new towers, animations, maps, and mechanics, but adding features forever wouldn't get me any closer to having a finished product.
+                    My priority became getting the complete gameplay loop working first. Once the game reached a fully playable state, I could shift more attention toward UI, presentation, balancing, and the other things that affect how finished the product feels.
+                    <br><br>
                     There are release builds available on Github for Windows/Mac/Linux, and I am always looking for more playtesters, so see the Contact page on my site if interested.
                     <br><br>
                     There is still a lot of work to do, but I am excited to continue working on this project and eventually getting it out there to real users around the world!
                 </p>
+
+                <br><br>
+                <h3>Technologies Used</h3>
+                <ul>
+                    <li>C++20</li>
+                    <li>SDL2</li>
+                    <li>SDL_image</li>
+                    <li>SDL_ttf</li>
+                    <li>SDL_mixer</li>
+                    <li>CMake</li>
+                    <li>Git & Github</li>
+                    <li>Cross-platform development (Windows, Mac, Linux)</li>
+                    <li>JSON based game data</li>
+                    <li>Github Actions</li>
+                    <li>CI/CD and automated release packaging</li>
+                </ul>
             </div>
         </div>
         {% include footer.html %}
