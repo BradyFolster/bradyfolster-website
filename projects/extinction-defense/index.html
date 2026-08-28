@@ -15,6 +15,7 @@ layout: null
             <div id="project-detail" class="project-detail"></div>
 
             <div class="project-detail-manual">
+                <h3>Introduction</h3>
                 <p class="body_text">
                     Extinction Defense is a prehistoric themed tower defense game that I am building from scratch in C++ using SDL2.
                     Instead of using a full game engine like Unity or Godot, I wanted to try to better understand the underlying systems that really make a game work.
@@ -25,6 +26,8 @@ layout: null
                     I could have made the game much faster in an existing engine, but that wasn't really the point of the project.
                     A big reason why I started Extinction Defense was to get better at C++ by building something large enough where organization and archetecture really mattered.
                 </p>
+
+                <br><br>
                 <h3>Building A Game Without a Game Engine</h3>
                 <p class="body_text">
                     SDL2 gives me a window, renderer, input handling, audio support, and some other lower level functionality, but most of the actual game behavior still has to be written by me.
@@ -35,6 +38,8 @@ layout: null
                     <br><br>
                     It also gave me experience working directly with SDL2 along with SDL_image, SDL_ttf, and SDL_mixer for graphics, fonts, and audio.
                 </p>
+
+                <br><br>
                 <h3>Tower and Combat Systems</h3>
                 <p class="body_text">
                     There are currently 12 different dinosaur towers, each with their own unique attack patterns.
@@ -46,6 +51,8 @@ layout: null
                     That distinction is actually a core part of what makes Extinction Defense work;
                     Separate classes for new tower definitions and runtime-state towers allow me to differentiate between all different towers.
                 </p>
+
+                <br><br>
                 <h3>Projectiles and Predictive Targeting</h3>
                 <p class="body_text">
                     The projectile system became one of the more complicated parts of the game.
@@ -59,6 +66,8 @@ layout: null
                     <br><br>
                     I also cventralized enemy damage into one system so that mechanics such as armor, slows, death, and rewards aren't inndependently handled by each tower.
                 </p>
+
+                <br><br>
                 <h3>Enemies and Wave Progression</h3>
                 <p class="body_text">
                     The game currently includes 18 enemy types and a complete 120 wave progression.
@@ -72,6 +81,8 @@ layout: null
                     Keeping track of health, money, damage, upgrades, and progression made balancing the game really hard.
                     However, it ultimately gave me a lot more experience with working with <b>products</b> rather than just code.
                 </p>
+
+                <br><br>
                 <h3>Product Thinking</h3>
                 <p class="body_text">
                     One of the most important things that I learned from this project was to constantly think about the user.
@@ -83,6 +94,8 @@ layout: null
                     I also learned that a product is more than just the code that makes it work.
                     Everything that goes into a product isn't just "making something", but it is about creating something useful that real people would want/need to use.
                 </p>
+
+                <br><br>
                 <h3>Conclusions & Future</h3>
                 <p class="body_text">
                     Extinction Defense is still very much a work in progress, but I am proud of how far it has come.
