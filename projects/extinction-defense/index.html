@@ -20,18 +20,18 @@ layout: null
                     Extinction Defense is a prehistoric themed tower defense game that I am building from scratch in C++ using SDL2.
                     Instead of using a full game engine like Unity or Godot, I wanted to try to better understand the underlying systems that really make a game work.
                     <br><br>
-                    The basic idea is simple: dinosaurs are your towers and you use them to defense against increasingly difficult waves of enemies.
-                    Under the hood, however, the project turned into a MUCH larger excercise in C++ architecture, real-time simulation, asset management, build systems, and cross-platform deployment.
+                    The basic idea is simple: dinosaurs are your towers and you use them to defend against increasingly difficult waves of enemies.
+                    Under the hood, however, the project turned into a MUCH larger exercise in C++ architecture, real-time simulation, asset management, build systems, and cross-platform deployment.
                     <br><br>
                     I could have made the game much faster in an existing engine, but that wasn't really the point of the project.
-                    A big reason why I started Extinction Defense was to get better at C++ by building something large enough where organization and archetecture really mattered.
+                    A big reason why I started Extinction Defense was to get better at C++ by building something large enough where organization and architecture really mattered.
                 </p>
 
                 <br><br>
                 <h3>Building A Game Without a Game Engine</h3>
                 <p class="body_text">
                     SDL2 gives me a window, renderer, input handling, audio support, and some other lower level functionality, but most of the actual game behavior still has to be written by me.
-                    The game runs around a traditional real-time update and render loop. Each frame I process input, update the current game state, update waves towers, enemies, and projectiles, and then render the result to the screen.
+                    The game runs around a traditional real-time update and render loop. Each frame I process input, update the current game state, update waves, towers, enemies, and projectiles, and then render the result to the screen.
                     <br><br>
                     Working this way forced me to think a lot more about program state than I would have if an engine were handling everything for me.
                     Menus, gameplay, settings, pausing, wave progression, tower selection, and other parts of the game all have to transition cleanly without interfering with one another.
@@ -49,30 +49,20 @@ layout: null
                     There are currently 12 different dinosaur towers, each with their own unique attack patterns.
                     Some are straightforward single-target attackers, while others have completely different mechanics, such as splash damage, burst attacks, economy towers, attack-speed boost towers, manual artillery targeting, and towers that can be repositioned after being placed.
                     <br><br>
-                    Each tower also has two separate five level upgrade paths, generally split between damage and utility.
+                    Each tower also has two separate five-level upgrade paths, generally split between damage and utility.
                     The upgrades modify the individual tower that the player placed rather than changing some global definition.
                     <br><br>
                     That distinction is actually a core part of what makes Extinction Defense work;
                     Separate classes for new tower definitions and runtime-state towers allow me to differentiate between all different towers.
                     <br><br>
-                    From the beginning, I wanted the game to be easy to understand, but still give the player meaningful choices.
-                    Each dinosaur should have an obvious purpose, but there shouldn't be one tower that is always the correct answer.
-                    I wanted players to slowly understand how the different systems interact and eventually build strategies of their own.
-                </p>
-
-                <br><br>
-                <h3>Projectiles and Predictive Targeting</h3>
-                <p class="body_text">
-                    The projectile system became one of the more complicated parts of the game.
+                    The projectile system became one of the more complicated parts of the towers.
                     Normal projectiles don't simply aim at where an enemy currently is.
                     The game looks at the enemy's movement and calculates where it should be by the time the projectile reaches it.
                     The projectile then fires toward that predicted position.
                     <br><br>
-                    This mean working with positions, velocities, distance calculations, and timing rather than just making a projectile follow an enemy every frame.
-                    <br><br>
-                    Projectiles also snapshot the relevant tower stats when they are fired, so that there are no issues with upgrades changing projectiles mid-attack.
-                    <br><br>
-                    I also cventralized enemy damage into one system so that mechanics such as armor, slows, death, and rewards aren't inndependently handled by each tower.
+                    From the beginning, I wanted the game to be easy to understand, but still give the player meaningful choices.
+                    Each dinosaur should have an obvious purpose, but there shouldn't be one tower that is always the correct answer.
+                    I wanted players to slowly understand how the different systems interact and eventually build strategies of their own.
                 </p>
 
                 <br><br>
@@ -87,20 +77,18 @@ layout: null
                     <br><br>
                     Making 120 waves also introduced a HUGE challenge: balancing. 
                     Keeping track of health, money, damage, upgrades, and progression made balancing the game really hard.
-                    However, it ultimately gave me a lot more experience with working with <b>products</b> rather than just code.
+                    <br><br>
+                    Balancing eventually became less about individual numbers and more about controlling the player's experience across the full game:
+                    when new mechanics are introduced, how quickly difficulty rises, and whether different strategies remain viable.
                 </p>
 
                 <br><br>
                 <h3>From Project to Product</h3>
                 <p class="body_text">
-                    One of the most important things that I learned from this project was to constantly think about the user.
-                    It doesn't matter if <i>I</i> could understand exactly how the program works, if the user can't understand it right away.
+                    As the project became playable, my focus started shifting from "does this feature work?" to "does the player understand why it's here?".
+                    A mechanic could be completely functional and still be a bad addition if it was confusing, unncessary, or made the game less fun.
                     <br><br>
-                    Along with that came the realization that there is no point in making a game if it isn't fun to play!
-                    I was <i>constantly</i> thinking about how to make the game more fun, using my friends as playtesters in the very beginning.
-                    <br><br>
-                    I also learned that a product is more than just the code that makes it work.
-                    Everything that goes into a product isn't just "making something", but it is about creating something useful that real people would want/need to use.
+                    That changed how I approached new features. Instead of automatically building whatever idea sounded interesting, I started thinking more about the problem it solved for the player and whether it was worth the development time.
                 </p>
 
                 <br><br>
@@ -109,11 +97,19 @@ layout: null
                     While I am still in the process of playtesting, I can already see the benefits.
                     My current playtesting loop is <b>Build -> Observe -> Identify Issues -> Prioritize -> Change -> Test Again</b>.
                     <br><br>
-                    Having other people play the game has already changed the way develop it.
+                    Having other people play the game has already changed the way I develop it.
                     Things that seemed completely obvious to me were confusing to others playing for the first time.
                     Instead of explaining what the player was "supposed to do", I started paying attention to where they hesitated and what they misunderstood.
                     <br><br>
-                    That feedack helped me decide what needed work instead of just adding whatever feature sounded interesting to me next.
+                    That feedback helped me decide what needed work instead of just adding whatever feature sounded interesting to me next.
+                    <br><br>
+                    Recently during testing, I noticed that players preferred to have pictures of the dinosaurs on their respective spawn buttons, rather than text.
+                    This made me realize that the UI I had designed wasn't as intuitive as I thought, so I changed the buttons to have pictures to make the game make more sense to the player.
+                    <br><br>
+                    I also wanted testing the game to be easy.
+                    Asking someone to clone a repository, install dependencies, and compile the game would severely limit who would actually try it.
+                    So, I set up automated GitHub Actions released for Windows, Linux, and macOS.
+                    That turned distribution into part of the development process instead of an afterthought.
                 </p>
 
                 <br><br>
@@ -125,8 +121,6 @@ layout: null
                     Another challenge was deciding what <i>not</i> to work on.
                     It was easy to come up with new towers, animations, maps, and mechanics, but adding features forever wouldn't get me any closer to having a finished product.
                     My priority became getting the complete gameplay loop working first. Once the game reached a fully playable state, I could shift more attention toward UI, presentation, balancing, and the other things that affect how finished the product feels.
-                    <br><br>
-                    There are release builds available on Github for Windows/Mac/Linux, and I am always looking for more playtesters, so see the Contact page on my site if interested.
                     <br><br>
                     There is still a lot of work to do, but I am excited to continue working on this project and eventually getting it out there to real users around the world!
                 </p>
@@ -146,13 +140,13 @@ layout: null
                     <br>
                     CMake
                     <br>
-                    Git & Github
+                    Git & GitHub
                     <br>
-                    Cross-platform development (Windows, Mac, Linux)
+                    Cross-platform development (Windows, macOS, Linux)
                     <br>
                     JSON based game data
                     <br>
-                    Github Actions
+                    GitHub Actions
                     <br>
                     CI/CD and automated release packaging
                 </p>
